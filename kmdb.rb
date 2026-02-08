@@ -269,7 +269,7 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 for movie in Movie.all
   studio = Studio.find(movie.studio_id)
-  puts "#{movie.title}"
+  puts "#{movie.title} #{movie.year_released} #{movie.rated} #{studio.name}"
 end
 
 # Prints a header for the cast output
@@ -279,7 +279,11 @@ puts "========"
 puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
-# TODO!
+for role in Role.all
+  actor = Actor.find(role.actor_id)
+  movie = Movie.find(role.movie_id)
+  puts "#{movie.title} #{actor.name} #{role.character_name}"
+end
 
 # Prints a header for the agent's list of represented actors output
 puts ""
@@ -288,4 +292,7 @@ puts "===================="
 puts ""
 
 # Query the actor data and loop through the results to display the agent's list of represented actors output.
-# TODO!
+represented_actor = Actor.where.not({agent_id: nil})
+for actor in represented_actor
+  puts "#{actor.name}"
+end
