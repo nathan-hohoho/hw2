@@ -115,18 +115,55 @@ dark_knight_rises.save
 # Generate actors
 christian_bale = Actor.new
 christian_bale["name"] = "Christian Bale"
+christian_bale.save
 
 michael_caine = Actor.new
 michael_caine["name"] = "Michael Caine"
+michael_caine.save
 
 liam_neeson = Actor.new
 liam_neeson["name"] = "Liam Neeson"
+liam_neeson.save
 
 katie_holmes = Actor.new
 katie_holmes["name"] = "Katie Holmes"
+katie_holmes.save
 
 gary_oldman = Actor.new
 gary_oldman["name"] = "Gary Oldman"
+gary_oldman.save
+
+# Batman Begins
+bruce_wayne = Role.new
+bruce_wayne["movie_id"] = batman_begins.id
+bruce_wayne["actor_id"] = christian_bale.id
+bruce_wayne["character_name"] = "Bruce Wayne"
+bruce_wayne.save
+p bruce_wayne
+
+alfred = Role.new
+alfred["movie_id"] = batman_begins.id
+alfred["actor_id"] = michael_caine.id
+alfred["character_name"] = "Alfred"
+alfred.save
+
+ras_al_ghul = Role.new
+ras_al_ghul["movie_id"] = batman_begins.id
+ras_al_ghul["actor_id"] = liam_neeson.id
+ras_al_ghul["character_name"] = "Ra's Al Ghul"
+ras_al_ghul.save
+
+rachel_dawes = Role.new
+rachel_dawes["movie_id"] = batman_begins.id
+rachel_dawes["actor_id"] = katie_holmes.id
+rachel_dawes["character_name"] = "Rachel Dawes"
+rachel_dawes.save
+
+commissioner_gordon = Role.new
+commissioner_gordon["movie_id"] = batman_begins.id
+commissioner_gordon["actor_id"] = gary_oldman.id
+commissioner_gordon["character_name"] = "Commissioner Gordon"
+commissioner_gordon.save
 
 # Prints a header for the movies output
 puts "Movies"
